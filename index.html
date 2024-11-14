@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset Store</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <header>
+        <h1>Asset Store</h1>
+    </header>
+    <nav>
+        <a href="login.html">Вход</a>
+        <a href="register.html">Регистрация</a>
+        <div class="dropdown">
+            <a href="#">Каталог</a>
+            <div class="dropdown-content">
+                <a href="3dmodels.html">3D Модели</a>
+                <a href="#">Текстуры</a>
+                <a href="#">Аудио</a>
+                <a href="#">Скрипты</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#">Контакты</a>
+            <div class="dropdown-content">
+                <a href="https://vk.com">ВКонтакте</a>
+                <a href="https://lk.pnzgu.ru/portfolio/my" >Эйос</a> 
+            </div>
+        </div>
+        <a href="#">О нас</a>
+    </nav>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Поиск...">
+        <button onclick="alert('Поиск...')">Поиск</button>
+    </div>
+
+    <div class="slider">
+        <div class="slides">
+            <img src="https://via.placeholder.com/1000x300?text=Sale+1" alt="Sale 1">
+            <img src="https://via.placeholder.com/1000x300?text=Sale+2" alt="Sale 2">
+            <img src="https://via.placeholder.com/1000x300?text=Sale+3" alt="Sale 3">
+        </div>
+        <div class="slider-nav">
+            <button id="prev">&#10094;</button>
+            <button id="next">&#10095;</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2 style="grid-column: span 2; text-align: center;">Наши продукты</h2> 
+        <div class="product" onclick="window.location.href='product1.html'">
+            <h3>Продукт 1</h3>
+            <p>Описание продукта 1</p>
+        </div>
+        <div class="product" onclick="window.location.href='product2.html'">
+            <h3>Продукт 2</h3>
+            <p>Описание продукта 2</p>
+        </div>
+        <div class="product" onclick="window.location.href='product3.html'">
+            <h3>Продукт 3</h3>
+            <p>Описание продукта 3</p>
+        </div>
+        <div class="product" onclick="window.location.href='product4.html'">
+            <h3>Продукт 4</h3>
+            <p>Описание продукта 4</p>
+        </div>
+        <div class="product" onclick="window.location.href='product5.html'">
+            <h3>Продукт 5</h3>
+            <p>Описание продукта 5</p>
+        </div>
+        <div class="product" onclick="window.location.href='product6.html'">
+            <h3>Продукт 6</h3>
+            <p>Описание продукта 6</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Asset Store. Все права защищены.</p>
+    </footer>
+
+    <div class="back-to-top" onclick="scrollToTop()">Наверх</div>
+
+    <div id="subscribeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Подпишитесь на новости!</h2>
+            <input type="email" placeholder="Ваш email">
+            <button onclick="subscribe()">Подписаться</button>
+        </div>
+    </div>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProductModal()">&times;</span>
+            <h2 id="productTitle"></h2>
+            <p id="productDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        // Slider functionality
+        const slides = document.querySelector('.slides');
+        const slideImages = document.querySelectorAll('.slides img');
+        let currentIndex = 0;
+
+        document.getElementById('next').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slideImages.length;
+            slides.style.transform = `translateX(${-currentIndex * 100}%)`;
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slideImages.length) % slideImages.length;
+            slides.style.transform = `translateX(${-currentIndex * 100}%)`;
+        });
+
+        // Back to top functionality
+        const backToTopButton = document.querySelector('.back-to-top');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // Modal functionality
+        const modal = document.getElementById("subscribeModal");
+        const productModal = document.getElementById("productModal");
+
+        window.onload = function() {
+            setTimeout(() => {
+                modal.style.display = "flex";
+            }, 2000);
+        };
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        function subscribe() {
+            alert("Спасибо за подписку!");
+            closeModal();
+        }
+
+        function openModal(title, description) {
+            document.getElementById("productTitle").innerText = title;
+            document.getElementById("productDescription").innerText = description;
+            productModal.style.display = "flex";
+        }
+
+        function closeProductModal() {
+            productModal.style.display = "none";
+        }
+
+        // Close product modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == productModal) {
+                closeProductModal();
+            }
+        }
+    </script>
+
+</body>
+</html>

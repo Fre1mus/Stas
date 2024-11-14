@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация - Asset Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Asset Store - Регистрация</h1>
+    </header>
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="login.html">Вход</a>
+    </nav>
+
+    <div class="register-container">
+        <h2>Регистрация</h2>
+        <form id="regForm">
+            <input type="text" placeholder="Имя" required>
+            <input type="text" placeholder="Логин" required>
+            <input type="password" placeholder="Пароль" required>
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+        <p id="message" style="color: green;"></p>
+    </div>
+
+    <script>
+        document.getElementById('regForm').onsubmit = function(e) {
+            e.preventDefault();
+            const name = e.target[0].value;
+            const username = e.target[1].value;
+            const password = e.target[2].value;
+
+            // Логика для регистрации (можно заменить на реальную логику)
+            if (name && username && password) {
+                // Здесь можно добавить AJAX-запрос для отправки данных на сервер
+                // Например, fetch('/register', { method: 'POST', body: JSON.stringify({ name, username, password }) });
+
+                document.getElementById('message').innerText = 'Регистрация успешна! Добро пожаловать, ' + name + '!';
+                e.target.reset(); // Сброс формы
+            } else {
+                document.getElementById('message').innerText = 'Пожалуйста, заполните все поля.';
+            }
+        };
+    </script>
+
+ 
+
+</body>
+</html>

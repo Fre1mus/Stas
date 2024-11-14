@@ -1,0 +1,284 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    position: relative;
+}
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+nav {
+    margin: 10px 0;
+    text-align: center;
+}
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    position: relative;
+}
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Две колонки */
+    gap: 15px;
+}
+.product {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-align: center; /* Выравнивание текста по центру */
+}
+.product:hover {
+    transform: scale(1.05);
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.search-bar {
+    margin: 20px 0;
+    text-align: center;
+}
+.search-bar input[type="text"] {
+    padding: 8px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.search-bar button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 5px;
+}
+/* Slider Styles */
+.slider {
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.slides img {
+    width: 100%;
+    border-radius: 5px;
+}
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+.slider-nav button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+    display: none;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Контейнер для регистрации */
+.register-container {
+    max-width: 400px; /* Максимальная ширина контейнера */
+    margin: 50px auto; /* Центрирование контейнера */
+    padding: 20px; /* Отступы внутри контейнера */
+    background-color: #fff; /* Белый фон для контейнера */
+    border-radius: 8px; /* Закругленные углы */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для эффекта поднятия */
+}
+
+/* Заголовок формы */
+.register-container h2 {
+    text-align: center; /* Центрирование заголовка */
+    color: #333; /* Темно-серый цвет заголовка */
+}
+
+/* Стили для формы */
+form {
+    display: flex; /* Используем flexbox для расположения элементов */
+    flex-direction: column; /* Вертикальное расположение элементов */
+}
+
+form input {
+    margin-bottom: 15px; /* Отступы между полями */
+    padding: 10px; /* Отступы внутри полей */
+    border: 1px solid #ccc; /* Светло-серая рамка */
+    border-radius: 5px; /* Закругленные углы */
+    font-size: 16px; /* Размер шрифта */
+}
+
+form button {
+    padding: 10px; /* Отступы внутри кнопки */
+    background-color: #28a745; /* Зеленый цвет для кнопки */
+    color: white; /* Белый цвет текста */
+    border: none; /* Без рамки */
+    border-radius: 5px; /* Закругленные углы */
+    cursor: pointer; /* Указатель для клика */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+
+form button:hover {
+    background-color: #218838; /* Темно-зеленый цвет при наведении */
+}
+
+/* Сообщение об успешной регистрации */
+#message {
+    text-align: center; /* Центрирование текста */
+    margin-top: 15px; /* Отступ сверху */
+}
+/* Контейнер для входа */
+.login-container {
+    max-width: 400px; /* Максимальная ширина контейнера */
+    margin: 50px auto; /* Центрирование контейнера */
+    padding: 20px; /* Отступы внутри контейнера */
+    background-color: #fff; /* Белый фон для контейнера */
+    border-radius: 8px; /* Закругленные углы */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для эффекта поднятия */
+}
+
+/* Заголовок формы */
+.login-container h2 {
+    text-align: center; /* Центрирование заголовка */
+    color: #333; /* Темно-серый цвет заголовка */
+}
+
+/* Стили для формы */
+form {
+    display: flex; /* Используем flexbox для расположения элементов */
+    flex-direction: column; /* Вертикальное расположение элементов */
+}
+
+form input {
+    margin-bottom: 15px; /* Отступы между полями */
+    padding: 10px; /* Отступы внутри полей */
+    border: 1px solid #ccc; /* Светло-серая рамка */
+    border-radius: 5px; /* Закругленные углы */
+    font-size: 16px; /* Размер шрифта */
+}
+
+form button {
+    padding: 10px; /* Отступы внутри кнопки */
+    background-color: #007bff; /* Синий цвет для кнопки */
+    color: white; /* Белый цвет текста */
+    border: none; /* Без рамки */
+    border-radius: 5px; /* Закругленные углы */
+    cursor: pointer; /* Указатель для клика */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+
+form button:hover {
+    background-color: #0056b3; /* Темно-синий цвет при наведении */
+}
+
+/* Сообщение об ошибке входа */
+#loginMessage {
+    text-align: center; /* Центрирование текста */
+    margin-top: 15px; /* Отступ сверху */
+    color: red; /* Красный цвет для сообщения об ошибке */
+}
+
+/* Стили для футера */
+footer {
+    background-color: #333; /* Темный фон для футера */
+    color: #fff; /* Белый цвет текста */
+    text-align: center; /* Центрирование текста */
+    padding: 10px 0; /* Отступы сверху и снизу */
+    position: relative; /* Позиционирование футера */
+    bottom: 0; /* Футер внизу */
+    width: 100%; /* Ширина на всю страницу */
+}

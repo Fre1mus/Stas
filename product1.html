@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Продукт - Asset Store</title>
+    <link rel="stylesheet" href="styleproduct.css">
+    
+</head>
+<body>
+    <header>
+        <h1>Asset Store - Продукт</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <div class="dropdown">
+                <a href="#">Каталог</a>
+                <div class="dropdown-content">
+                    <a href="3dmodels.html">3D Модели</a>
+                    <a href="#">Текстуры</a>
+                    <a href="#">Аудио</a>
+                    <a href="#">Скрипты</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="product-detail">
+        <h2>Название Продукта</h2>
+        
+        <div class="gallery">
+            <img src="https://via.placeholder.com/600x400?text=Изображение+1" alt="Image 1" class="active">
+            <img src="https://via.placeholder.com/600x400?text=Изображение+2" alt="Image 2">
+            <img src="https://via.placeholder.com/600x400?text=Изображение+3" alt="Image 3">
+        </div>
+        
+        <div class="buttons">
+            <button id="prevBtn">Назад</button>
+            <button id="nextBtn">Вперед</button>
+        </div>
+       
+        <h3>Описание</h3>
+        <p>Это мощный инструмент для создания радиостанций в ваших играх. Он поддерживает множество форматов и прост в использовании.</p>
+        
+        <h3>Характеристики:</h3>
+        <ul>
+            <li>Поддержка различных аудиоформатов</li>
+            <li>Легкая интеграция в Unity</li>
+            <li>Простая настройка и использование</li>
+            <li>Поддержка многопользовательских игр</li>
+        </ul>
+
+        
+        <button class="download-btn" onclick="alert('Скачивание началось!')">Скачать</button>
+
+        <h3>Отзывы</h3>
+        <div class="reviews">
+            <div class="review">
+                <h4>Пользователь 1</h4>
+                <p>Отличный продукт! Легко интегрируется и работает без проблем.</p>
+            </div>
+            <div class="review">
+                <h4>Пользователь 2</h4>
+                <p>Мне очень нравится, как это улучшает атмосферу игры. Рекомендую!</p>
+            </div>
+        </div>
+
+        <!-- Секция рейтинга -->
+        <h3>Оценка товара</h3>
+        <div class="rating">
+            <span class="star" data-value="1">★</span>
+            <span class="star" data-value="2">★</span>
+            <span class="star" data-value="3">★</span>
+            <span class="star" data-value="4">★</span>
+            <span class="star" data-value="5">★</span>
+            <span class="rating-value">Рейтинг: 0</span>
+        </div>
+    </div>
+
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-to-top" id="scrollToTopBtn">Наверх</button>
+
+    <!-- Футер -->
+    <footer>
+        <p>&copy; 2023 Asset Store. Все права защищены.</p>
+    </footer>
+
+    <script>
+        const images = document.querySelectorAll('.gallery img');
+        let currentIndex = 0;
+
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.classList.remove('active');
+                if (i === index) {
+                    img.classList.add('active');
+                }
+            });
+        }
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            showImage(currentIndex);
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            showImage(currentIndex);
+        });
+
+        // Оценка товара
+        const stars = document.querySelectorAll('.star');
+        const ratingValue = document.querySelector('.rating-value');
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const rating = star.getAttribute('data-value');
+                stars.forEach(s => {
+                    s.classList.remove('active');
+                });
+                for (let i = 0; i < rating; i++) {
+                    stars[i].classList.add('active');
+                }
+                ratingValue.textContent = `Рейтинг: ${rating}`;
+            });
+        });
+
+        // Кнопка "Наверх"
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        };
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+    </script>
+</body>
+</html>
